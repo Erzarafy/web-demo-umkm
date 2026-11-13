@@ -341,9 +341,61 @@
       footer a { color: var(--green-dark); font-weight: 600; text-decoration: none; }
       footer a:hover { text-decoration: underline; }
 
+      /* ---------- Animasi premium ---------- */
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(16px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .hero .brand,
+      .hero h1,
+      .hero p.lede,
+      .hero .include-note {
+        animation: fadeUp 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+      }
+      .hero h1 { animation-delay: 0.12s; }
+      .hero p.lede { animation-delay: 0.26s; }
+      .hero .include-note { animation-delay: 0.4s; }
+
+      /* Scroll reveal: elemen tampil normal sampai kelas .play ditambahkan
+         sesaat sebelum masuk layar, lalu animasi fade-up berjalan sekali. */
+      .reveal.play {
+        animation: fadeUp 0.85s cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
+      }
+      .card {
+        transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      }
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 14px 30px rgba(19, 26, 21, 0.1);
+      }
+      .card.popular:hover { box-shadow: 0 14px 34px rgba(14, 122, 61, 0.22); }
+      .btn-wa, .btn-demo, .btn-ghost {
+        transition: background 0.2s ease, border-color 0.2s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .btn-wa:hover, .btn-demo:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 18px rgba(19, 26, 21, 0.16);
+      }
+      .btn-ghost:hover { transform: translateY(-2px); }
+      .renew .item, .steps li {
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+      }
+      .renew .item:hover, .steps li:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 22px rgba(19, 26, 21, 0.08);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation: none !important;
+          transition: none !important;
+        }
+      }
+
       /* ---------- Cetak / PDF ---------- */
       @media print {
         :root { --bg: #fff; --surface: #fff; --surface-2: #f0f3ec; --line: #cfd8cc; }
+        *, *::before, *::after { animation: none !important; transition: none !important; }
         body { font-size: 12.5px; }
         .wrap { max-width: none; padding: 0; }
         .hero { padding-top: 0; }
@@ -378,7 +430,7 @@
       <!-- Paket -->
       <div class="packages">
 
-        <article class="card">
+        <article class="card reveal">
           <h2>Paket Starter</h2>
           <p class="price">Rp 500.000<small>sekali bayar</small></p>
           <p class="tagline">Untuk usaha yang baru mulai tampil online — cukup satu halaman yang lengkap dan rapi.</p>
@@ -397,7 +449,7 @@
           </a>
         </article>
 
-        <article class="card popular">
+        <article class="card popular reveal">
           <span class="badge">Paling Populer</span>
           <h2>Paket Bisnis</h2>
           <p class="price">Rp 1.500.000<small>sekali bayar</small></p>
@@ -418,7 +470,7 @@
           </a>
         </article>
 
-        <article class="card">
+        <article class="card reveal">
           <h2>Paket Premium</h2>
           <p class="price">Rp 3.000.000<small>sekali bayar</small></p>
           <p class="tagline">Paket paling lengkap — website sekaligus mesin penjualan dan branding usaha Anda.</p>
@@ -441,18 +493,18 @@
       </div>
 
       <!-- Contoh website -->
-      <div class="demo-cta">
+      <div class="demo-cta reveal">
         <h2>Lihat Contoh Website</h2>
         <p>Belum yakin? Lihat dulu <strong>26 contoh website UMKM</strong> yang sudah kami buat — salon, barbershop, klinik, dan berbagai usaha lainnya di Solo Raya. Semua bisa dibuka dan dicoba langsung.</p>
-        <a class="btn-demo" href="https://erzarafy.github.io/web-demo-umkm/" target="_blank" rel="noopener">
+        <a class="btn-demo" href="https://erzarafy.github.io/web-demo-umkm/demo/" target="_blank" rel="noopener">
           Lihat 26 Contoh Website
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
-        <span class="demo-url">erzarafy.github.io/web-demo-umkm</span>
+        <span class="demo-url">erzarafy.github.io/web-demo-umkm/demo</span>
       </div>
 
       <!-- Perpanjangan -->
-      <section>
+      <section class="reveal">
         <h2 class="sec">Perpanjangan Tahun Berikutnya</h2>
         <p class="sec-sub">Harga paket di atas sudah termasuk domain + hosting untuk tahun pertama. Mulai tahun ke-2, Anda cukup membayar biaya perpanjangan berikut per tahun — sifatnya opsional.</p>
         <div class="renew">
@@ -473,7 +525,7 @@
       </section>
 
       <!-- Cara kerja -->
-      <section>
+      <section class="reveal">
         <h2 class="sec">Cara Kerjanya</h2>
         <p class="sec-sub">Prosesnya sederhana, tanpa ribet:</p>
         <ol class="steps">
@@ -501,7 +553,7 @@
       </section>
 
       <!-- Ketentuan -->
-      <section>
+      <section class="reveal">
         <h2 class="sec">Ketentuan</h2>
         <ul class="terms">
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Harga sudah termasuk domain .com + hosting + SSL untuk tahun pertama.</span></li>
@@ -513,7 +565,7 @@
       </section>
 
       <!-- Penutup -->
-      <div class="closing">
+      <div class="closing reveal">
         <h2>Masih ragu memilih paket?</h2>
         <p>Chat saja dulu — ceritakan usaha Anda, nanti kami bantu rekomendasikan paket yang paling pas. Gratis, tanpa kewajiban.</p>
         <div class="actions">
@@ -530,9 +582,74 @@
 
       <footer>
         WebGampang · WhatsApp <a href="https://wa.me/6287873092973" target="_blank" rel="noopener">0878-7309-2973</a><br />
-        Contoh website: <a href="https://erzarafy.github.io/web-demo-umkm/" target="_blank" rel="noopener">erzarafy.github.io/web-demo-umkm</a>
+        Contoh website: <a href="https://erzarafy.github.io/web-demo-umkm/demo/" target="_blank" rel="noopener">erzarafy.github.io/web-demo-umkm/demo</a>
       </footer>
 
     </main>
+    <script>
+      (function () {
+        var els = document.querySelectorAll(".reveal");
+        if (!els.length) return;
+
+        // Pengguna yang mengurangi gerakan tidak perlu animasi sama sekali.
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+        // Stagger: elemen bersaudara muncul bergantian dengan jeda lembut.
+        var counts = new Map();
+        els.forEach(function (el) {
+          var n = counts.get(el.parentNode) || 0;
+          counts.set(el.parentNode, n + 1);
+          el.style.animationDelay = Math.min(n * 0.13, 0.39) + "s";
+        });
+
+        function play(el) {
+          el.classList.add("play");
+        }
+
+        // Elemen yang sudah terlewat di atas layar tidak perlu dianimasikan.
+        // Sisanya dimainkan sesaat sebelum masuk layar (margin 160px),
+        // supaya tidak ada kilasan konten sebelum animasi berjalan.
+        var pending = Array.prototype.slice.call(els);
+        function sweep() {
+          var limit = window.innerHeight + 160;
+          pending = pending.filter(function (el) {
+            var rect = el.getBoundingClientRect();
+            if (rect.top < limit) {
+              if (rect.bottom > 0) play(el);
+              return false;
+            }
+            return true;
+          });
+        }
+        var ticking = false;
+        function onScroll() {
+          if (ticking) return;
+          ticking = true;
+          window.requestAnimationFrame(function () {
+            ticking = false;
+            sweep();
+          });
+        }
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", onScroll);
+        window.addEventListener("load", sweep);
+        sweep();
+
+        if ("IntersectionObserver" in window) {
+          var io = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  play(entry.target);
+                  io.unobserve(entry.target);
+                }
+              });
+            },
+            { rootMargin: "160px 0px 160px 0px" }
+          );
+          els.forEach(function (el) { io.observe(el); });
+        }
+      })();
+    </script>
   </body>
 </html>
