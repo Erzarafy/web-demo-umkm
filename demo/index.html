@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Website — WebGampang</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; background: #fafafa; color: #1a1a1a; line-height: 1.6; }
+  header { background: #111; color: #fff; padding: 3rem 1.5rem 2.5rem; text-align: center; }
+  header h1 { font-size: 1.9rem; margin-bottom: .5rem; }
+  header p { color: #bbb; max-width: 560px; margin: 0 auto; }
+  header a { color: #7dd3fc; }
+  .cta { display: inline-block; margin-top: 1.2rem; background: #fff; color: #111; font-weight: 700; font-size: .95rem; padding: .65rem 1.4rem; border-radius: 999px; text-decoration: none; }
+  .cta:hover { background: #e5e5e5; }
+  main { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  h2 { font-size: 1.25rem; margin: 2.5rem 0 1rem; padding-bottom: .4rem; border-bottom: 2px solid #111; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
+  .card { background: #fff; border: 1px solid #e5e5e5; border-radius: 10px; padding: 1.1rem 1.2rem; text-decoration: none; color: inherit; transition: border-color .15s, transform .15s; }
+  .card:hover { border-color: #111; transform: translateY(-2px); }
+  .card b { display: block; font-size: 1.02rem; margin-bottom: .25rem; }
+  .card span { color: #666; font-size: .88rem; }
+  footer { text-align: center; color: #888; font-size: .85rem; padding: 2rem 1rem 3rem; }
+  footer a { color: #555; }
+  .back { display: inline-block; color: #7dd3fc; font-size: .9rem; margin-bottom: .8rem; text-decoration: none; }
+  .back:hover { text-decoration: underline; }
+  .card { transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease; }
+  .card:hover { box-shadow: 0 10px 28px rgba(0,0,0,.08); }
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s ease-out, transform .7s ease-out; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+</style>
+</head>
+<body>
+<header>
+  <a class="back" href="../">← Beranda WebGampang</a>
+  <h1>Demo Website</h1>
+  <p>Jasa pembuatan website untuk UMKM di Solo Raya — lihat dulu demonya, baru bayar. Setiap demo di bawah ini dibuat berdasarkan data publik bisnisnya dan bisa dibuka langsung. Dibuat oleh <a href="https://github.com/Erzarafy">Erza</a>, web developer.</p>
+  <a class="cta" href="../pricelist/">Lihat Pricelist Jasa Website →</a>
+</header>
+<main>
+  <h2>Salon &amp; Barbershop</h2>
+  <div class="grid">
+    <a class="card" href="../kinanti-salon/"><b>Kinanti Salon</b><span>Salon — Nusukan, Surakarta</span></a>
+    <a class="card" href="../dr-hair/"><b>DR Hair &amp; Beauty Lounge</b><span>Salon — Surakarta</span></a>
+    <a class="card" href="../oesmans-barbershop/"><b>Oesman's Barbershop</b><span>Barbershop — Surakarta</span></a>
+    <a class="card" href="../proper-barbershop/"><b>Proper Barbershop Solo</b><span>Barbershop — 2 cabang</span></a>
+    <a class="card" href="../goodfriends-barbershop/"><b>GoodFriends Barbershop</b><span>Barbershop — Surakarta</span></a>
+    <a class="card" href="../el-barbershop/"><b>EL Barbershop UNS</b><span>Barbershop — dekat UNS</span></a>
+    <a class="card" href="../five-o-barbershop/"><b>Five-O Barbershop</b><span>Barbershop — Nusukan</span></a>
+    <a class="card" href="../smooch-beauty-bar/"><b>Smooch Beauty Bar</b><span>Beauty bar — Surakarta</span></a>
+  </div>
+
+  <h2>Klinik &amp; Kesehatan</h2>
+  <div class="grid">
+    <a class="card" href="../christianie-dental-care/"><b>Christianie Dental Care</b><span>Klinik gigi estetik &amp; implan</span></a>
+    <a class="card" href="../aa-dental-care/"><b>AA Dental Care</b><span>Klinik gigi — 4 cabang</span></a>
+    <a class="card" href="../dental-solution-solo/"><b>Dental Solution Solo</b><span>Klinik gigi — 2 cabang</span></a>
+    <a class="card" href="../samudra-vet-care/"><b>Samudra Vet Care</b><span>Klinik hewan 24 jam</span></a>
+  </div>
+
+  <h2>Wedding &amp; Catering</h2>
+  <div class="grid">
+    <a class="card" href="../sakinah-katering/"><b>Sakinah Katering</b><span>Catering wedding &amp; acara</span></a>
+    <a class="card" href="../obong-management/"><b>Obong Management Solo</b><span>Wedding organizer</span></a>
+    <a class="card" href="../harmoni-wedding/"><b>Harmoni Wedding Organizer</b><span>WO &amp; catering — sejak 2009</span></a>
+    <a class="card" href="../de-lawang-djoendjing/"><b>De' Lawang Djoendjing</b><span>Venue pernikahan</span></a>
+  </div>
+
+  <h2>Otomotif &amp; Rental</h2>
+  <div class="grid">
+    <a class="card" href="../trisno-motor/"><b>Trisno Motor</b><span>Dealer mobil bekas — Kartasura</span></a>
+    <a class="card" href="../diral-motor/"><b>Diral Motor</b><span>Dealer mobil bekas — Kartasura</span></a>
+    <a class="card" href="../rka-transport/"><b>RKA Transport Indonesia</b><span>Rental mobil premium</span></a>
+  </div>
+
+  <h2>Resto</h2>
+  <div class="grid">
+    <a class="card" href="../manara-bistro/"><b>Manara Bistro Solo</b><span>Fine dining Indonesian modern</span></a>
+    <a class="card" href="../yassalam-resto/"><b>Yassalam Resto Solo</b><span>Resto Timur Tengah &amp; catering</span></a>
+  </div>
+
+  <h2>Retail &amp; Lainnya</h2>
+  <div class="grid">
+    <a class="card" href="../batik-putra-bengawan/"><b>Batik Putra Bengawan</b><span>Batik premium — Laweyan</span></a>
+    <a class="card" href="../amalia-furniture/"><b>Amalia Furniture</b><span>Mebel jati Jepara — sejak 1999</span></a>
+    <a class="card" href="../toko-mas-dinar/"><b>Toko Mas Dinar Solo</b><span>Toko emas — sejak 1971</span></a>
+    <a class="card" href="../doeloerkoe-homestay/"><b>Doeloerkoe Homestay</b><span>Homestay heritage — Pasar Kliwon</span></a>
+    <a class="card" href="../neo-fit-gym/"><b>Neo Fit Gym Solo Baru</b><span>Gym &amp; kelas fitness</span></a>
+  </div>
+</main>
+<footer>
+  Demo dibuat dari data publik (Google Maps, Instagram, dan website bisnis terkait). Foto-foto di dalam demo adalah ilustrasi.<br>
+  Hubungi Erza via WhatsApp: <a href="https://wa.me/6287873092973">0878-7309-2973</a>
+</footer>
+
+<script>
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var els = document.querySelectorAll('main h2, main .card');
+  els.forEach(function (el, i) {
+    el.classList.add('reveal');
+    if (el.classList.contains('card')) el.style.transitionDelay = ((i % 3) * 70) + 'ms';
+  });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
+</body>
+</html>
