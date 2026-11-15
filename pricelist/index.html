@@ -140,11 +140,19 @@
         color: var(--ink-soft);
       }
       .price {
-        margin: 10px 0 2px;
+        margin: 2px 0 2px;
         font-size: 2rem;
         font-weight: 800;
         letter-spacing: -0.02em;
         line-height: 1.1;
+      }
+      .was {
+        margin: 12px 0 0;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--ink-faint);
+        text-decoration: line-through;
+        text-decoration-thickness: 1.5px;
       }
       .price small {
         display: block;
@@ -432,6 +440,7 @@
 
         <article class="card reveal">
           <h2>Paket Starter</h2>
+          <p class="was">Rp 750.000</p>
           <p class="price">Rp 500.000<small>sekali bayar</small></p>
           <p class="tagline">Untuk usaha yang baru mulai tampil online — cukup satu halaman yang lengkap dan rapi.</p>
           <ul class="features">
@@ -452,6 +461,7 @@
         <article class="card popular reveal">
           <span class="badge">Paling Populer</span>
           <h2>Paket Bisnis</h2>
+          <p class="was">Rp 1.800.000</p>
           <p class="price">Rp 1.500.000<small>sekali bayar</small></p>
           <p class="tagline">Untuk usaha yang ingin tampil lengkap — ada katalog, galeri, dan halaman-halaman terpisah.</p>
           <ul class="features">
@@ -472,6 +482,7 @@
 
         <article class="card reveal">
           <h2>Paket Premium</h2>
+          <p class="was">Rp 3.400.000</p>
           <p class="price">Rp 3.000.000<small>sekali bayar</small></p>
           <p class="tagline">Paket paling lengkap — website sekaligus mesin penjualan dan branding usaha Anda.</p>
           <ul class="features">
