@@ -316,6 +316,7 @@ footer a:hover{color:#fff;text-decoration:underline}
   .js .reveal,.reveal{opacity:1;transform:none;transition:none}
   .marquee-track{animation:none}
   .rev-stars{animation:none}
+  .menu-list{animation:none}
   .wa-float,.ig-float{animation:none}
   .gal-grid img,.btn,.exp-item{transition:none}
   .book-leaf{transition:none}
@@ -383,10 +384,16 @@ section{padding:48px 0}
 .rev-card figcaption div span{font-size:11.5px}
 }
 
-@media(max-width:760px){
+.menu-swipe-hint{display:none}
+@keyframes menuglow{0%,100%{box-shadow:var(--shadow)}50%{box-shadow:var(--shadow),0 0 18px rgba(179,39,30,.35)}}
+@media(max-width:1024px){
 .menu-panels{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;-ms-overflow-style:none}
 .menu-panels::-webkit-scrollbar{display:none}
 .menu-panel{display:block;flex:0 0 100%;scroll-snap-align:start}
+.menu-tabs{justify-content:center;margin-bottom:10px}
+.tab-btn[aria-selected="false"]{display:none}
+.menu-swipe-hint{display:block;text-align:center;font-size:13.5px;color:var(--ink-soft);margin:0 0 18px}
+.menu-list{animation:menuglow 3s ease-in-out infinite}
 }
 </style>
 </head>
@@ -513,6 +520,7 @@ section{padding:48px 0}
       <button class="tab-btn" role="tab" aria-selected="false" data-tab="sashimi">Sashimi dan Nigiri</button>
     </div>
 
+    <p class="menu-swipe-hint">← Geser ke kiri atau kanan untuk melihat kategori lain →</p>
     <div class="menu-panels" id="menuPanels">
     <div class="menu-panel on" data-panel="roll">
       <div class="menu-list">
@@ -795,7 +803,7 @@ var sio = new IntersectionObserver(function(entries){
 var tabBtns = document.querySelectorAll('.tab-btn');
 var menuPanels = document.getElementById('menuPanels');
 var menuPanelList = document.querySelectorAll('.menu-panel');
-var mqMenuMobile = window.matchMedia('(max-width: 760px)');
+var mqMenuMobile = window.matchMedia('(max-width: 1024px)');
 var reduceMotionMenu = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 function setActiveTab(tabName){
   tabBtns.forEach(function(b){ b.setAttribute('aria-selected', b.dataset.tab === tabName ? 'true' : 'false'); });
@@ -821,6 +829,21 @@ if(menuPanels && 'IntersectionObserver' in window){
   }, {root: menuPanels, threshold: [0.6]});
   menuPanelList.forEach(function(p){ menuIO.observe(p); });
 }
+
+// refresh selalu mulai dari atas, hash tidak menempel di URL
+try{ history.scrollRestoration = 'manual'; }catch(e){}
+window.scrollTo(0, 0);
+window.addEventListener('load', function(){ window.scrollTo(0, 0); });
+document.addEventListener('click', function(ev){
+  var a = ev.target.closest ? ev.target.closest('a[href^="#"]') : null;
+  if(!a) return;
+  var id = a.getAttribute('href');
+  if(id.length < 2) return;
+  var el = document.querySelector(id);
+  if(!el) return;
+  ev.preventDefault();
+  el.scrollIntoView({behavior: reduceMotionMenu ? 'auto' : 'smooth', block: 'start'});
+});
 
 // flipbook buku menu (12 halaman dari menu PDF resmi)
 (function(){
