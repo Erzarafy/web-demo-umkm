@@ -75,7 +75,7 @@
 }
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-size:16px;line-height:1.65}
 img{max-width:100%;display:block}
 a{color:inherit}
@@ -295,7 +295,7 @@ footer a:hover{color:#fff;text-decoration:underline}
 /* koreksi tombol 18 Nov: logo WA saja di hero, float IG, foto menu */
 .btn-icon-only{width:56px;height:56px;padding:0;border-radius:50%;justify-content:center}
 .btn-icon-only svg{width:28px;height:28px}
-.ig-float{position:fixed;right:16px;bottom:88px;z-index:70;width:60px;height:60px;border-radius:50%;background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(214,41,118,.45);animation:glow 2.6s ease-in-out infinite}
+.ig-float{position:fixed;right:16px;bottom:16px;z-index:70;width:60px;height:60px;border-radius:50%;background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(214,41,118,.45);animation:glow 2.6s ease-in-out infinite}
 .wa-float svg,.ig-float svg{width:30px;height:30px}
 .menu-thumb{width:88px;height:88px;object-fit:cover;border-radius:10px;flex-shrink:0}
 .menu-row>div{flex:1}
@@ -354,7 +354,7 @@ footer a:hover{color:#fff;text-decoration:underline}
 .sticky-bar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--surface);border-top:1px solid var(--line);padding:12px 16px calc(12px + env(safe-area-inset-bottom));box-shadow:0 -8px 24px rgba(20,12,6,.12)}
 .sticky-bar .btn{width:100%;justify-content:center}
 body{padding-bottom:76px}
-.wa-float{display:none}
+.ig-float{bottom:88px}
 div[style*="z-index:999999"]{bottom:88px !important}
 }
 </style>
@@ -372,7 +372,6 @@ div[style*="z-index:999999"]{bottom:88px !important}
       <a href="#lokasi">Lokasi</a>
       <a href="#faq">FAQ</a>
     </div>
-    <a class="btn btn-wa btn-sm" href="#reservasi">Reservasi</a>
   </nav>
 </div>
 
@@ -386,7 +385,7 @@ div[style*="z-index:999999"]{bottom:88px !important}
     </div>
     <h1 class="reveal" style="--d:1">Restoran Sushi di PIK, <span class="red">Sushi NIKA</span></h1>
     <p class="hero-sub reveal" style="--d:2">Sushi NIKA adalah restoran Jepang di Ruko Golf Island, Pantai Indah Kapuk. Signature Nika Roll di sini berisi unagi satu ekor utuh dalam satu porsi. Rasanya serius, suasananya hangat, dan reservasinya cukup lewat WhatsApp.</p>
-    <div class="hero-cta reveal" style="--d:3"><a class="btn btn-aka" href="https://wa.me/6281110540033?text=Halo%20Sushi%20NIKA%2C%20saya%20ingin%20reservasi.%0ATanggal%3A%20%0AJam%3A%20%0AJumlah%20orang%3A%20">Reservasi via WhatsApp</a><a class="btn btn-ghost" href="#menu">Lihat Menu</a></div>
+    <div class="hero-cta reveal" style="--d:3"><a class="btn btn-aka" href="#reservasi">Reservasi via WhatsApp</a><a class="btn btn-ghost" href="#menu">Lihat Menu</a></div>
     <p class="hero-note reveal" style="--d:4">Buka hari ini pukul 11.00. Senin sampai Kamis tutup 22.00, Jumat sampai Minggu tutup 23.00.</p>
   </div>
   <div class="stats">
@@ -660,8 +659,7 @@ div[style*="z-index:999999"]{bottom:88px !important}
   <div class="wrap reveal" style="background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:36px 28px;text-align:center">
     <h2 style="font-size:clamp(26px,4vw,36px)">Mau makan di Sushi NIKA minggu ini?</h2>
     <p style="color:var(--ink-soft);max-width:520px;margin:12px auto 24px">Meja di akhir pekan cepat penuh. Reservasi sekarang, tim Sushi NIKA akan mengonfirmasi ketersediaan meja.</p>
-    <a class="btn btn-wa btn-lg" href="https://wa.me/6281110540033?text=Halo%20Sushi%20NIKA%2C%20saya%20ingin%20reservasi.%0ATanggal%3A%20%0AJam%3A%20%0AJumlah%20orang%3A%20">Reservasi via WhatsApp</a>
-    <p style="margin-top:16px"><a href="#reservasi" style="color:var(--aka);font-weight:600">atau isi form reservasi</a></p>
+    <a class="btn btn-aka btn-lg" href="#reservasi">Isi Form Reservasi</a>
     
   </div>
 </section>
@@ -699,9 +697,6 @@ div[style*="z-index:999999"]{bottom:88px !important}
 
 <a class="ig-float" href="https://www.instagram.com/sushinika.id/" target="_blank" rel="noopener" aria-label="Instagram Sushi NIKA">
   <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.3" fill="#fff" stroke="none"/></svg>
-</a>
-<a class="wa-float" href="https://wa.me/6281110540033?text=Halo%20Sushi%20NIKA%2C%20saya%20mau%20reservasi%20meja." target="_blank" rel="noopener" aria-label="Chat WhatsApp Sushi NIKA untuk reservasi">
-  <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.13a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24a8.2 8.2 0 0 1 8.23 8.24c0 4.54-3.69 8.24-8.23 8.24zm4.52-6.16c-.25-.13-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.56-1.35-.81-1.95-.21-.51-.43-.44-.59-.45h-.5c-.17 0-.45.06-.68.31-.23.25-.88.85-.88 2.07 0 1.22.89 2.4 1.01 2.56.13.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.6.19 1.13.16 1.56.1.48-.07 1.47-.6 1.81-1.18.35-.58.35-1.07.25-1.18-.1-.1-.23-.16-.48-.29z"/></svg>
 </a>
 
 <div style="position:fixed;left:12px;bottom:12px;z-index:999999;pointer-events:none;max-width:min(340px,calc(100vw - 96px));background:rgba(0,0,0,.82);color:#fff;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;font-size:11px;line-height:1.5;padding:10px 13px;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,.35)"><b style="font-size:12px;letter-spacing:.3px">Website Demo Created By WebGampang</b><br><span>Demo ini hanya contoh. Dilarang dipakai untuk keperluan resmi. Untuk pemakaian resmi, hubungi WebGampang. Pemakaian tanpa izin merupakan pelanggaran hak cipta.</span></div>
@@ -927,7 +922,7 @@ tabBtns.forEach(function(btn){
   render();
 })();
 </script>
-<div class="sticky-bar"><a class="btn btn-wa" href="https://wa.me/6281110540033?text=Halo%20Sushi%20NIKA%2C%20saya%20ingin%20reservasi.%0ATanggal%3A%20%0AJam%3A%20%0AJumlah%20orang%3A%20">Reservasi via WhatsApp</a></div>
+<div class="sticky-bar"><a class="btn btn-wa" href="#reservasi">Reservasi</a></div>
 <script>
 (function(){
   var form = document.getElementById('resvForm');
