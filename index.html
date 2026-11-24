@@ -407,7 +407,26 @@
         .marquee-track{width:auto;flex-wrap:wrap}
         .marquee-set[aria-hidden="true"]{display:none}
       }
-    </style>
+    
+      /* ======= FORMULIR MINTA DEMO ======= */
+      .demo-form-card{max-width:760px;margin:0 auto;background:var(--panel-2);border:1px solid var(--line);border-radius:var(--radius);padding:34px 34px 28px}
+      .demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+      .demo-field{display:flex;flex-direction:column;gap:8px}
+      .demo-field.full{grid-column:1/-1}
+      .demo-field label{font-size:14px;font-weight:600;color:var(--ink)}
+      .demo-field label span{color:var(--ink-3);font-weight:400}
+      .demo-field input,.demo-field select,.demo-field textarea{background:#0a0f0b;border:1px solid var(--line);border-radius:12px;color:var(--ink);font:inherit;font-size:15px;padding:13px 15px;width:100%;outline:none;transition:border-color .2s}
+      .demo-field input:focus,.demo-field select:focus,.demo-field textarea:focus{border-color:var(--green)}
+      .demo-field textarea{resize:vertical;min-height:88px}
+      .demo-checks{display:grid;grid-template-columns:1fr 1fr;gap:12px 20px;margin-top:2px}
+      .demo-check{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.45;color:var(--ink-2);cursor:pointer}
+      .demo-check input{accent-color:var(--green);width:18px;height:18px;margin-top:1px;flex:none;cursor:pointer}
+      .demo-submit{width:100%;justify-content:center;margin-top:6px}
+      .demo-note{margin:16px 0 0;text-align:center;font-size:13.5px;color:var(--ink-3)}
+      .demo-ok{display:none;margin-top:20px;background:rgba(47,224,122,.12);border:1px solid rgba(47,224,122,.45);border-radius:12px;padding:15px 18px;font-size:15px;line-height:1.6;color:var(--ink)}
+      .demo-ok.show{display:block}
+      @media(max-width:640px){.demo-grid,.demo-checks{grid-template-columns:1fr}.demo-form-card{padding:26px 20px 22px}}
+</style>
   </head>
   <body>
     <div class="bg-fx" aria-hidden="true"></div>
@@ -697,6 +716,73 @@
         </div>
       </section>
 
+
+      <!-- ======= MINTA DEMO ======= -->
+      <section id="minta-demo">
+        <div class="wrap">
+          <div class="sec-head rv">
+            <h2>Minta demo untuk <em>usahamu.</em></h2>
+            <p>Isi formulir singkat ini. Demonya kami buatkan gratis, pesanmu terkirim lewat WhatsApp.</p>
+          </div>
+          <form class="demo-form-card rv" id="demoForm">
+            <div class="demo-grid">
+              <div class="demo-field">
+                <label for="demoNamaUsaha">Nama usaha *</label>
+                <input id="demoNamaUsaha" type="text" placeholder="Contoh: Kopi Senja" required>
+              </div>
+              <div class="demo-field">
+                <label for="demoKategori">Kategori usaha *</label>
+                <select id="demoKategori" required>
+                  <option value="" disabled selected>Pilih kategori usaha</option>
+                  <option>Resto</option>
+                  <option>Kafe &amp; Coffee Shop</option>
+                  <option>Retail &amp; Toko</option>
+                  <option>Salon &amp; Barbershop</option>
+                  <option>Klinik &amp; Kesehatan</option>
+                  <option>Wedding &amp; Catering</option>
+                  <option>Otomotif &amp; Rental</option>
+                  <option>Lainnya</option>
+                </select>
+              </div>
+              <div class="demo-field">
+                <label for="demoKota">Kota *</label>
+                <input id="demoKota" type="text" placeholder="Contoh: Surakarta" required>
+              </div>
+              <div class="demo-field">
+                <label for="demoNama">Nama kamu *</label>
+                <input id="demoNama" type="text" placeholder="Nama yang bisa kami sapa" required>
+              </div>
+              <div class="demo-field full">
+                <label for="demoSosmed">Instagram / Google Maps <span>(kalau ada)</span></label>
+                <input id="demoSosmed" type="text" placeholder="Link Instagram atau Google Maps usahamu">
+              </div>
+              <div class="demo-field full">
+                <label>Fitur yang diinginkan <span>(boleh pilih lebih dari satu)</span></label>
+                <div class="demo-checks">
+                  <label class="demo-check"><input type="checkbox" name="demoFitur" value="Daftar menu / katalog produk dengan foto">Daftar menu / katalog produk dengan foto</label>
+                  <label class="demo-check"><input type="checkbox" name="demoFitur" value="Formulir reservasi / pemesanan">Formulir reservasi / pemesanan</label>
+                  <label class="demo-check"><input type="checkbox" name="demoFitur" value="Tombol WhatsApp dan Instagram">Tombol WhatsApp dan Instagram</label>
+                  <label class="demo-check"><input type="checkbox" name="demoFitur" value="Galeri foto">Galeri foto</label>
+                  <label class="demo-check"><input type="checkbox" name="demoFitur" value="Peta lokasi Google Maps">Peta lokasi Google Maps</label>
+                  <label class="demo-check"><input type="checkbox" name="demoFitur" value="Website dua bahasa (Indonesia + Inggris)">Website dua bahasa (Indonesia + Inggris)</label>
+                </div>
+              </div>
+              <div class="demo-field full">
+                <label for="demoCerita">Cerita tentang usahamu <span>(opsional)</span></label>
+                <textarea id="demoCerita" placeholder="Ceritakan sedikit tentang usahamu, atau tulis yang kamu mau di website."></textarea>
+              </div>
+              <div class="demo-field full">
+                <button class="btn btn-green demo-submit" type="submit">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>
+                  Kirim via WhatsApp
+                </button>
+                <p class="demo-note">Formulir ini membuka WhatsApp dengan pesan yang sudah terisi. Tidak ada biaya, tidak ada kewajiban.</p>
+                <div class="demo-ok" id="demoOk" role="status"></div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
       <!-- ======= CLOSING CTA ======= -->
       <div class="closing wrap">
         <div class="cta-panel rv">
@@ -707,7 +793,7 @@
               Lihat Demo Gratis
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
-            <a class="btn btn-ghost" href="https://wa.me/6287873092973?text=Halo%20Erza%2C%20saya%20mau%20dibuatkan%20demo%20website%20gratis%20untuk%20bisnis%20saya." target="_blank" rel="noopener">Minta Demo via WhatsApp</a>
+            <a class="btn btn-ghost" href="#minta-demo">Minta Demo Gratis</a>
           </div>
         </div>
       </div>
@@ -874,5 +960,57 @@
         });
       })();
     </script>
-  </body>
+  
+    <script>
+      // WebGampang: formulir Minta Demo, kirim brief via WhatsApp
+      (function () {
+        var form = document.getElementById('demoForm');
+        if (!form) return;
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var val = function (id) { return (document.getElementById(id).value || '').trim(); };
+          var fitur = [];
+          form.querySelectorAll('input[name="demoFitur"]:checked').forEach(function (c) { fitur.push(c.value); });
+          var sumber = (function () {
+            var u = new URLSearchParams(location.search).get('utm_source');
+            if (u) { return u.charAt(0).toUpperCase() + u.slice(1); }
+            var r = document.referrer;
+            if (r) {
+              var h = '';
+              try { h = new URL(r).hostname.replace(/^www\./, ''); } catch (err) {}
+              if (h.indexOf('facebook.com') !== -1) return 'Facebook';
+              if (h.indexOf('instagram.com') !== -1) return 'Instagram';
+              if (h.indexOf('google.') !== -1) return 'Google';
+              if (h.indexOf('tiktok.com') !== -1) return 'TikTok';
+              if (h.indexOf('youtube.com') !== -1 || h.indexOf('youtu.be') !== -1) return 'YouTube';
+              if (h) return h;
+            }
+            return 'Langsung';
+          })();
+          var lines = [
+            'Halo Erza, saya mau minta dibuatkan demo website gratis.',
+            '',
+            'Nama usaha: ' + val('demoNamaUsaha'),
+            'Kategori: ' + val('demoKategori'),
+            'Kota: ' + val('demoKota'),
+            'Nama: ' + val('demoNama')
+          ];
+          var sosmed = val('demoSosmed');
+          if (sosmed) lines.push('Instagram/Maps: ' + sosmed);
+          if (fitur.length) lines.push('Fitur yang diinginkan: ' + fitur.join(', '));
+          var cerita = val('demoCerita');
+          if (cerita) lines.push('Cerita: ' + cerita);
+          lines.push('Sumber: ' + sumber);
+          if (typeof gtag === 'function') {
+            gtag('event', 'demo_request_submit', { page_path: location.pathname, kategori_usaha: val('demoKategori') });
+          }
+          window.open('https://wa.me/6287873092973?text=' + encodeURIComponent(lines.join('\n')), '_blank');
+          var ok = document.getElementById('demoOk');
+          ok.textContent = 'Siap. Pesanmu sudah terbuka di WhatsApp, tinggal tekan kirim. Kami balas secepatnya.';
+          ok.classList.add('show');
+          ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      })();
+    </script>
+</body>
 </html>
