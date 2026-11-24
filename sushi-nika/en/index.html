@@ -377,7 +377,7 @@ footer a:hover{color:#fff;text-decoration:underline}
 .resv-grid input[type=text],.resv-grid input[type=date],.resv-grid select{width:100%;min-width:0;max-width:100%;margin-top:6px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);font:inherit;font-size:16px;min-height:48px}
 .resv-grid .resv-check{display:flex;align-items:center;gap:10px;font-weight:500;cursor:pointer}
 .resv-check input{width:20px;height:20px;accent-color:var(--aka)}
-.resv-note{font-size:14px;color:var(--ink-soft);margin-top:14px}
+.resv-note{font-size:14px;color:var(--ink-soft);margin-top:14px} .resv-kode{margin-top:14px;padding:12px 14px;border-radius:10px;background:#f0fdf4;border:1px solid #bbf7d0;color:#14532d;font-size:14px;line-height:1.5}
 .rev-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
 .rev-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;margin:0;box-shadow:var(--shadow)}
 .rev-stars{color:#f5b301;font-size:18px;letter-spacing:2px;animation:starshine 3.4s ease-in-out infinite}
@@ -637,7 +637,8 @@ section{padding:48px 0}
         <label class="resv-check"><input type="checkbox" id="resvVip"> I would like the VIP Room</label>
       </div>
       <button class="btn btn-wa btn-lg" type="submit">Send Reservation on WhatsApp</button>
-      <p class="resv-note">This form opens WhatsApp with a pre-filled message. No payment is taken here; the Sushi NIKA team confirms by chat.</p>
+      <p id="resvKode" class="resv-kode" hidden></p>
+      <p class="resv-note">This form opens WhatsApp with a pre-filled message, including your unique reservation code. No payment is taken here; the Sushi NIKA team confirms by chat.</p>
     </form>
   </div>
 </section>
@@ -1055,7 +1056,26 @@ document.addEventListener('click', function(ev){
     var time = document.getElementById('resvJam').value;
     var party = document.getElementById('resvOrang').value;
     var vip = document.getElementById('resvVip').checked ? 'Yes' : 'No';
-    var msg = 'Hello Sushi NIKA, I would like to reserve a table.\nName: ' + guestName + '\nDate: ' + dateStr + '\nTime: ' + time + '\nParty size: ' + party + '\nVIP Room: ' + vip;
+    var kode = 'SNK-' + (function(){ var c='ABCDEFGHJKMNPQRSTUVWXYZ23456789', s=''; for(var k=0;k<6;k++){ s += c[Math.floor(Math.random()*c.length)]; } return s; })();
+    var sumber = (function(){
+      var u = new URLSearchParams(location.search).get('utm_source');
+      if(u){ return u.charAt(0).toUpperCase() + u.slice(1); }
+      var r = document.referrer;
+      if(r){
+        var h = '';
+        try{ h = new URL(r).hostname.replace(/^www\./,''); }catch(e){}
+        if(h.indexOf('facebook.com') !== -1) return 'Facebook';
+        if(h.indexOf('instagram.com') !== -1) return 'Instagram';
+        if(h.indexOf('google.') !== -1) return 'Google';
+        if(h.indexOf('tiktok.com') !== -1) return 'TikTok';
+        if(h.indexOf('youtube.com') !== -1 || h.indexOf('youtu.be') !== -1) return 'YouTube';
+        if(h) return h;
+      }
+      return 'Direct';
+    })();
+    var msg = 'Hello Sushi NIKA, I would like to reserve a table.\nReservation code: ' + kode + '\nName: ' + guestName + '\nDate: ' + dateStr + '\nTime: ' + time + '\nParty size: ' + party + '\nVIP Room: ' + vip + '\nSource: ' + sumber;
+    var kodeEl = document.getElementById('resvKode');
+    if(kodeEl){ kodeEl.innerHTML = 'Your reservation code: <b>' + kode + '</b>. Please keep this code, our team will mention it when confirming.'; kodeEl.hidden = false; }
     window.open('https://wa.me/6281110540033?text=' + encodeURIComponent(msg), '_blank');
   });
 })();
