@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<!-- Google tag (gtag.js) - GA4 WebGampang -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2Y0NZYXEB3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2Y0NZYXEB3');
+</script>
+<script>
+  // WebGampang: lacak klik tombol WhatsApp sebagai event GA4
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"]') : null;
+    if (a && typeof gtag === 'function') {
+      gtag('event', 'whatsapp_click', {
+        link_url: a.href,
+        link_text: (a.textContent || '').trim().slice(0, 80),
+        page_path: location.pathname
+      });
+    }
+  });
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Digital &amp; Kartu Ucapan | WebGampang</title>
+<meta name="description" content="Undangan pernikahan digital, undangan webinar dan event, serta kartu ucapan ulang tahun dengan musik latar dan nama tiap tamu di sampul. Sekali bayar mulai Rp 39.000, aktif selamanya, tanpa biaya perpanjangan. Oleh WebGampang.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Undangan Digital &amp; Kartu Ucapan | WebGampang">
+<meta property="og:description" content="Hari istimewa pantas dirayakan dengan cara yang istimewa. Undangan dan kartu yang dibuka dari HP, lengkap dengan musik latar. Sekali bayar mulai Rp 39.000, aktif selamanya.">
+<meta property="og:url" content="https://erzarafy.github.io/web-demo-umkm/undangan/">
+<meta property="og:locale" content="id_ID">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBF6EF;
+    --surface:#FFFFFF;
+    --ink:#241D18;
+    --ink-soft:#5C5348;
+    --ink-faint:#8A7E6F;
+    --line:#EADBC8;
+    --gold:#B08D3E;
+    --wa:#1FA855;
+    --wa-dark:#178A44;
+    --radius:18px;
+    --sage:#6F7F5F; --sage-soft:#EEF2E8;
+    --indigo:#5B5BD6; --indigo-soft:#ECECFF;
+    --coral:#D95F3C; --coral-soft:#FDEEE9;
+    --burgundy:#8E2F45; --burgundy-soft:#F9E8EC;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  a{color:inherit}
+  h1,h2.display{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;line-height:1.15;letter-spacing:0}
+  section{padding:56px 0 0}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 30px}
+  .sec-head h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:2rem;line-height:1.2;margin:0 0 10px}
+  .sec-head p{margin:0;color:var(--ink-soft)}
+  .kicker{font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:0 0 10px}
+
+  /* ---------- Nav ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,246,239,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;gap:18px;min-height:64px}
+  .wordmark{font-weight:800;font-size:1.22rem;text-decoration:none;letter-spacing:-.01em}
+  .wordmark span{color:var(--gold)}
+  .nav-links{display:flex;gap:20px;margin-left:auto}
+  .nav-links a{text-decoration:none;font-weight:600;font-size:.95rem;color:var(--ink-soft)}
+  .nav-links a:hover{color:var(--ink)}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    min-height:48px;padding:12px 24px;border-radius:999px;
+    font-weight:700;font-size:1rem;text-decoration:none;
+    transition:background .15s ease,border-color .15s ease,transform .15s ease;
+  }
+  .btn:active{transform:scale(.98)}
+  .btn-wa-nav{
+    display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:9px 18px;
+    background:var(--wa);color:#fff;font-weight:700;font-size:.95rem;text-decoration:none;border-radius:999px;
+  }
+  .btn-wa-nav:hover{background:var(--wa-dark)}
+  @media (max-width:560px){
+    .nav{gap:12px}
+    .wordmark{font-size:1.08rem}
+    .nav-links{gap:0;margin-left:auto}
+    .nav-links .hide-sm{display:none}
+    .btn-wa-nav{padding:8px 14px;font-size:.9rem;min-height:38px}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{padding:64px 0 8px;text-align:center}
+  .hero .deco{display:flex;justify-content:center;gap:10px;margin-bottom:18px}
+  .hero .deco svg{width:17px;height:17px}
+  .hero .deco .h1{color:var(--burgundy)} .hero .deco .h2{color:var(--coral)} .hero .deco .h3{color:var(--sage)}
+  .hero h1{font-size:2.6rem;margin:0 auto 16px;max-width:16em}
+  .hero h1 em{font-style:italic;color:var(--burgundy)}
+  .hero .sub{margin:0 auto 14px;color:var(--ink-soft);max-width:56ch;font-size:1.05rem}
+  .hero .price-line{margin:0 0 28px;font-size:1.02rem}
+  .hero .price-line strong{font-size:1.3rem;font-weight:800}
+  .hero .price-line s{color:var(--ink-faint);margin-right:6px}
+  .hero .actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  .btn-ink{background:var(--ink);color:#FBF6EF}
+  .btn-ink:hover{background:#3A2F26}
+  .btn-wa{background:var(--wa);color:#fff}
+  .btn-wa:hover{background:var(--wa-dark)}
+  @media (min-width:760px){ .hero h1{font-size:3.4rem} }
+
+  /* ---------- Strip keunggulan ---------- */
+  .strip{
+    margin-top:48px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:26px 22px;
+    display:grid;gap:20px;
+  }
+  @media (min-width:700px){ .strip{grid-template-columns:repeat(2,1fr)} }
+  @media (min-width:1000px){ .strip{grid-template-columns:repeat(4,1fr)} }
+  .strip .item{display:flex;gap:13px;align-items:flex-start}
+  .strip .ic{
+    flex:none;display:flex;align-items:center;justify-content:center;
+    width:42px;height:42px;border-radius:50%;
+    background:#F6ECDC;color:var(--gold);
+  }
+  .strip .ic svg{width:21px;height:21px}
+  .strip .ic .inf{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.55rem;font-weight:700;line-height:1}
+  .strip .t{font-weight:700;font-size:.97rem;display:block;margin-bottom:2px}
+  .strip .d{color:var(--ink-soft);font-size:.9rem;line-height:1.5}
+
+  /* ---------- Kartu produk ---------- */
+  .cards{display:grid;gap:20px}
+  @media (min-width:820px){ .cards{grid-template-columns:repeat(2,1fr)} }
+  .card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-top:4px solid var(--accent);
+    border-radius:var(--radius);
+    padding:26px 24px 24px;
+    display:flex;flex-direction:column;
+  }
+  .p-nikah{--accent:var(--sage);--accent-soft:var(--sage-soft)}
+  .p-webinar{--accent:var(--indigo);--accent-soft:var(--indigo-soft)}
+  .p-teman{--accent:var(--coral);--accent-soft:var(--coral-soft)}
+  .p-pacar{--accent:var(--burgundy);--accent-soft:var(--burgundy-soft)}
+  .p-icon{
+    display:flex;align-items:center;justify-content:center;
+    width:52px;height:52px;margin:0 0 14px;border-radius:50%;
+    background:var(--accent-soft);color:var(--accent);
+  }
+  .p-icon svg{width:26px;height:26px}
+  .card h3{margin:0;font-size:1.18rem;font-weight:800;letter-spacing:.01em}
+  .promo{
+    align-self:flex-start;margin:12px 0 0;padding:4px 12px;border-radius:999px;
+    background:var(--accent-soft);color:var(--accent);
+    font-size:.8rem;font-weight:700;
+  }
+  .was{margin:10px 0 0;color:var(--ink-faint);font-size:1.05rem;font-weight:600;text-decoration:line-through}
+  .price{margin:0;font-size:2.1rem;font-weight:800;color:var(--accent);line-height:1.15}
+  .price small{display:block;font-size:.88rem;font-weight:500;color:var(--ink-faint)}
+  .tagline{
+    font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;
+    font-size:1.13rem;line-height:1.55;color:var(--ink-soft);
+    margin:14px 0 0;padding-bottom:16px;border-bottom:1px solid var(--line);
+  }
+  .features{list-style:none;margin:16px 0 20px;padding:0;display:grid;gap:10px}
+  .features li{display:flex;gap:9px;align-items:flex-start;font-size:.95rem;color:var(--ink-soft)}
+  .features li svg{flex:none;margin-top:4px;color:var(--accent)}
+  .features li strong{color:var(--ink)}
+  .card .btn-wa{margin-top:auto;width:100%}
+  .demo-link{
+    display:inline-block;margin-top:14px;text-align:center;width:100%;
+    color:var(--accent);font-weight:700;text-decoration:none;font-size:.97rem;
+  }
+  .demo-link:hover{text-decoration:underline}
+
+  /* ---------- Cara kerja ---------- */
+  .steps{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:step}
+  @media (min-width:820px){ .steps{grid-template-columns:repeat(3,1fr)} }
+  .steps li{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .steps .num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:34px;height:34px;border-radius:50%;
+    background:var(--gold);color:#fff;font-weight:800;margin-bottom:12px;
+    font-family:'Cormorant Garamond',Georgia,serif;font-size:1.15rem;
+  }
+  .steps .t{font-weight:700;display:block;margin-bottom:4px;font-size:1.02rem}
+  .steps .d{color:var(--ink-soft);font-size:.94rem}
+
+  /* ---------- Sebar link ---------- */
+  .share-band{
+    background:linear-gradient(165deg,#FDF3E3 0%,#F9E8EC 60%,#ECECFF 100%);
+    border:1px solid var(--line);
+    border-radius:24px;
+    padding:36px 24px;
+    text-align:center;
+  }
+  .share-band h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:2rem;margin:0 0 12px;line-height:1.2}
+  .share-band p{margin:0 auto 18px;color:var(--ink-soft);max-width:58ch}
+  .link-pill{
+    display:inline-block;background:var(--surface);border:1px solid var(--line);
+    border-radius:999px;padding:10px 20px;font-weight:600;font-size:.92rem;
+    word-break:break-all;
+  }
+  .link-pill b{color:var(--burgundy)}
+
+  /* ---------- FAQ ---------- */
+  .faq{max-width:760px;margin:0 auto;display:grid;gap:12px}
+  .faq details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 20px}
+  .faq summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-size:1.3rem;font-weight:600;color:var(--gold);flex:none}
+  .faq details[open ] summary::after{content:"–"}
+  .faq details p{margin:10px 0 2px;color:var(--ink-soft);font-size:.96rem}
+
+  /* ---------- Penutup ---------- */
+  .closing{
+    margin:64px 0 0;background:var(--ink);color:#FBF6EF;
+    border-radius:24px;padding:44px 24px;text-align:center;
+  }
+  .closing h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:2.1rem;margin:0 0 10px;line-height:1.2}
+  .closing p{margin:0 auto 24px;color:#D8CBBB;max-width:48ch}
+  footer{padding:30px 0 42px;text-align:center;color:var(--ink-faint);font-size:.92rem}
+  footer .links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
+  footer a{color:var(--gold);font-weight:600;text-decoration:none}
+  footer a:hover{text-decoration:underline}
+  footer p{margin:0}
+
+  /* ---------- Reveal ---------- */
+  .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+  .rv.on{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .rv{opacity:1;transform:none;transition:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="wordmark" href="../">Web<span>Gampang</span></a>
+    <nav class="nav-links">
+      <a href="../" class="hide-sm">Beranda</a>
+      <a href="../pricelist/">Pricelist</a>
+    </nav>
+    <a class="btn-wa-nav" href="https://wa.me/6287873092973" target="_blank" rel="noopener">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.48-1.77-1.65-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.11 3.22 5.1 4.51.71.31 1.27.49 1.7.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35ZM12.04 2C6.56 2 2.1 6.45 2.1 11.93c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.48 0 9.93-4.45 9.93-9.93 0-2.65-1.03-5.14-2.9-7.01A9.83 9.83 0 0 0 12.04 2Zm0 18.03h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.19-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="deco" aria-hidden="true">
+      <span class="h1"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+      <span class="h2"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+      <span class="h3"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+    </div>
+    <p class="kicker">Undangan Digital &amp; Kartu Ucapan</p>
+    <h1>Hari istimewa pantas dirayakan dengan cara yang <em>istimewa</em>.</h1>
+    <p class="sub">Undangan dan kartu yang dibuka dari HP, lengkap dengan musik latar dan nama tiap tamu tertulis di sampul. Bukan template pasaran, setiap pesanan dibuatkan khusus untuk kamu.</p>
+    <p class="price-line"><s>Rp 49.000</s><strong>Rp 39.000</strong> sekali bayar, aktif selamanya</p>
+    <div class="actions">
+      <a class="btn btn-ink" href="#produk">Lihat Contoh</a>
+      <a class="btn btn-wa" href="https://wa.me/6287873092973?text=Halo%20Erza%2C%20saya%20mau%20tanya-tanya%20dulu%20soal%20undangan%20digital%20dan%20kartu%20ucapan.%20Boleh%20info%20lebih%20lanjut%3F" target="_blank" rel="noopener">Pesan via WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- Strip keunggulan -->
+  <div class="strip rv">
+    <div class="item">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
+      <div><span class="t">Ada musik latarnya</span><span class="d">Setiap undangan dan kartu dibuka dengan musik yang mengalun pelan.</span></div>
+    </div>
+    <div class="item">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>
+      <div><span class="t">Nama tamu di sampul</span><span class="d">Nama tiap tamu tampil personal, terasa seperti ditulis khusus untuknya.</span></div>
+    </div>
+    <div class="item">
+      <span class="ic"><span class="inf" aria-hidden="true">&infin;</span></span>
+      <div><span class="t">Aktif selamanya</span><span class="d">Sekali bayar, tanpa biaya perpanjangan bulanan atau tahunan.</span></div>
+    </div>
+    <div class="item">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 10a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></span>
+      <div><span class="t">Siap sebar lewat link</span><span class="d">Tamu membuka langsung dari chat, tanpa install aplikasi apa pun.</span></div>
+    </div>
+  </div>
+
+  <!-- Produk -->
+  <section id="produk">
+    <div class="sec-head rv">
+      <p class="kicker">Pilih Kebutuhanmu</p>
+      <h2>Empat pilihan, satu cara membuka yang berkesan</h2>
+      <p>Klik Lihat Contoh untuk mencoba demonya langsung dari HP kamu, persis seperti yang akan diterima tamu atau orang tersayangmu.</p>
+    </div>
+    <div class="cards">
+
+      <article class="card p-nikah rv">
+        <div class="p-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="14" r="5.5"/><circle cx="15" cy="14" r="5.5"/></svg></div>
+        <h3>Undangan Pernikahan</h3>
+        <p class="promo">Harga promo peluncuran</p>
+        <p class="was">Rp 149.000</p>
+        <p class="price">Rp 119.000<small>sekali bayar</small></p>
+        <p class="tagline">Hari yang ditunggu seumur hidup, pantas dibuka dengan cara yang sama istimewanya. Tamu membuka undangan, namanya sudah tertulis di sampul, musik mengalun, dan mereka tahu hari ini sungguh-sungguh disiapkan.</p>
+        <ul class="features">
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Cover pembuka</strong> + nama tiap tamu di sampul</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Hitung mundur</strong> ke hari bahagia</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Jadwal akad dan resepsi + <strong>peta lokasi</strong></span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Galeri foto</strong> + cerita perjalanan kalian</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><strong>RSVP</strong> + amplop digital</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Musik latar</strong>, aktif selamanya</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Pengerjaan <strong>1-3 hari</strong> &middot; <strong>1x revisi</strong></span></li>
+        </ul>
+        <a class="btn btn-wa" href="https://wa.me/6287873092973?text=Halo%20Erza%2C%20saya%20mau%20pesan%20Undangan%20Pernikahan%20Digital%20%28Rp%20119.000%29.%20Boleh%20info%20lebih%20lanjut%3F" target="_blank" rel="noopener">Pesan via WhatsApp</a>
+        <a class="demo-link" href="../undangan-nikah/">Lihat contoh undangan &rarr;</a>
+      </article>
+
+      <article class="card p-webinar rv">
+        <div class="p-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="14" height="12" rx="2"/><path d="m16 10 6-3v10l-6-3"/></svg></div>
+        <h3>Undangan Webinar &amp; Event</h3>
+        <p class="promo">Harga promo peluncuran</p>
+        <p class="was">Rp 130.000</p>
+        <p class="price">Rp 99.000<small>sekali bayar</small></p>
+        <p class="tagline">Acara yang bagus pantas diundang dengan cara yang bagus. Sejak undangannya dibuka, tamu sudah merasa acaranya disiapkan sungguh-sungguh, bukan sekadar pesan berantai.</p>
+        <ul class="features">
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Topik, pembicara, dan <strong>jadwal acara</strong></span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Hitung mundur</strong> + tombol daftar</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Link Zoom</strong> atau lokasi acara</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Musik latar</strong>, aktif selamanya</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Pengerjaan <strong>1-2 hari</strong> &middot; <strong>1x revisi</strong></span></li>
+        </ul>
+        <a class="btn btn-wa" href="https://wa.me/6287873092973?text=Halo%20Erza%2C%20saya%20mau%20pesan%20Undangan%20Webinar/Event%20%28Rp%2099.000%29.%20Boleh%20info%20lebih%20lanjut%3F" target="_blank" rel="noopener">Pesan via WhatsApp</a>
+        <a class="demo-link" href="../undangan-webinar/">Lihat contoh undangan &rarr;</a>
+      </article>
+
+      <article class="card p-teman rv">
+        <div class="p-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3"/><path d="M5 21h14"/><path d="M6 21v-6.5A6 6 0 0 1 18 14.5V21"/><path d="M6 15h12"/></svg></div>
+        <h3>Kartu Ulang Tahun untuk Teman</h3>
+        <p class="promo">Harga promo peluncuran</p>
+        <p class="was">Rp 49.000</p>
+        <p class="price">Rp 39.000<small>sekali bayar</small></p>
+        <p class="tagline">Teman yang selalu ada di hari-hari biasa, pantas dapat kejutan di hari istimewanya. Kartu kecil ini cara sederhana bilang: aku ingat, dan aku peduli.</p>
+        <ul class="features">
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Ucapan hangat + <strong>3 kartu harapan</strong> interaktif</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Kue ulang tahun</strong>, lilinnya bisa ditiup</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Confetti + <strong>musik latar</strong></span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Pengerjaan <strong>1 hari</strong> &middot; <strong>1x revisi</strong></span></li>
+        </ul>
+        <a class="btn btn-wa" href="https://wa.me/6287873092973?text=Halo%20Erza%2C%20saya%20mau%20pesan%20Kartu%20Ulang%20Tahun%20untuk%20Teman%20%28Rp%2039.000%29.%20Boleh%20info%20lebih%20lanjut%3F" target="_blank" rel="noopener">Pesan via WhatsApp</a>
+        <a class="demo-link" href="../kartu-ultah-teman/">Lihat contoh kartu &rarr;</a>
+      </article>
+
+      <article class="card p-pacar rv">
+        <div class="p-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h3>Kartu Ulang Tahun untuk Pacar</h3>
+        <p class="promo">Harga promo peluncuran</p>
+        <p class="was">Rp 49.000</p>
+        <p class="price">Rp 39.000<small>sekali bayar</small></p>
+        <p class="tagline">Ada kata-kata yang susah diucapkan langsung, tapi terlalu penting untuk tidak disampaikan. Surat ini menyampaikannya dengan cara yang akan dia baca berulang-ulang.</p>
+        <ul class="features">
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Amplop segel lilin</strong> + surat cinta</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Alasan-alasan sayang</strong> yang ditulis khusus untuknya</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Timeline momen</strong> kalian berdua</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><strong>Musik latar</strong> romantis</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Pengerjaan <strong>1 hari</strong> &middot; <strong>1x revisi</strong></span></li>
+        </ul>
+        <a class="btn btn-wa" href="https://wa.me/6287873092973?text=Halo%20Erza%2C%20saya%20mau%20pesan%20Kartu%20Ulang%20Tahun%20untuk%20Pacar%20%28Rp%2039.000%29.%20Boleh%20info%20lebih%20lanjut%3F" target="_blank" rel="noopener">Pesan via WhatsApp</a>
+        <a class="demo-link" href="../kartu-ultah-pacar/">Lihat contoh kartu &rarr;</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Cara kerja -->
+  <section>
+    <div class="sec-head rv">
+      <p class="kicker">Cara Kerja</p>
+      <h2>Tiga langkah sampai link jadi</h2>
+    </div>
+    <ol class="steps">
+      <li class="rv">
+        <span class="num">1</span>
+        <span class="t">Pilih contoh, lalu ceritakan kebutuhanmu</span>
+        <span class="d">Lihat contohnya di halaman ini, lalu hubungi kami lewat WhatsApp. Kirim nama, foto, dan teks yang mau ditampilkan.</span>
+      </li>
+      <li class="rv">
+        <span class="num">2</span>
+        <span class="t">Kami buatkan, kamu cek drafnya</span>
+        <span class="d">Undangan atau kartumu kami kerjakan, lalu drafnya kami kirim untuk kamu periksa. Setiap pesanan termasuk 1x revisi.</span>
+      </li>
+      <li class="rv">
+        <span class="num">3</span>
+        <span class="t">Terima link jadi, tinggal sebar</span>
+        <span class="d">Setelah kamu oke, link jadinya kami kirim dan tinggal kamu bagikan. Selesai, tidak ada urusan teknis lagi.</span>
+      </li>
+    </ol>
+  </section>
+
+  <!-- Cara menyebarkan -->
+  <section>
+    <div class="share-band rv">
+      <p class="kicker">Cara Menyebarkan</p>
+      <h2>Satu link untuk semua tamu</h2>
+      <p>Link undanganmu cukup dibagikan ke grup WhatsApp keluarga atau dikirim satu per satu ke tiap tamu. Supaya terasa lebih personal, tambahkan nama tamu di akhir link. Nama itu yang akan tampil tertulis di sampul saat undangan dibuka.</p>
+      <span class="link-pill">&hellip;/undangan-nikah/<b>?to=Nama Tamu</b></span>
+      <p style="margin-top:18px">Setiap tamu membuka link yang sama, tapi masing-masing disambut dengan namanya sendiri.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="sec-head rv">
+      <p class="kicker">Sering Ditanyakan</p>
+      <h2>Hal yang biasanya ditanyakan dulu</h2>
+    </div>
+    <div class="faq">
+      <details class="rv">
+        <summary>Berapa lama pengerjaannya?</summary>
+        <p>Kartu ucapan selesai dalam 1 hari. Undangan selesai dalam 1–3 hari, tergantung kelengkapan nama, foto, dan teks yang kamu kirim.</p>
+      </details>
+      <details class="rv">
+        <summary>Apakah ada biaya perpanjangan?</summary>
+        <p>Tidak ada. Sekali bayar, undangan dan kartumu aktif selamanya tanpa biaya bulanan atau tahunan.</p>
+      </details>
+      <details class="rv">
+        <summary>Bisa pakai domain sendiri?</summary>
+        <p>Bisa. Kami bantu pasang domain pilihanmu supaya linknya lebih pendek dan memakai namamu. Biaya domainnya terpisah dari harga pembuatan.</p>
+      </details>
+      <details class="rv">
+        <summary>Bagaimana cara tamu membuka undangannya?</summary>
+        <p>Tamu cukup klik link yang kamu kirim, undangan langsung terbuka di browser HP. Tanpa install aplikasi, tanpa daftar akun.</p>
+      </details>
+      <details class="rv">
+        <summary>Apakah bisa revisi?</summary>
+        <p>Bisa. Setiap pesanan termasuk 1x revisi untuk perbaikan nama, foto, dan teks setelah draf pertama jadi.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Penutup -->
+  <div class="closing rv">
+    <h2>Hari istimewamu sudah dekat?</h2>
+    <p>Ceritakan kebutuhanmu lewat WhatsApp. Kami bantu siapkan undangan atau kartunya dari sekarang, kamu tinggal menyebarkan linknya.</p>
+    <a class="btn btn-wa" href="https://wa.me/6287873092973?text=Halo%20Erza%2C%20saya%20mau%20tanya-tanya%20dulu%20soal%20undangan%20digital%20dan%20kartu%20ucapan.%20Boleh%20info%20lebih%20lanjut%3F" target="_blank" rel="noopener">Chat WhatsApp</a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="../pricelist/">Pricelist Website</a>
+      <a href="https://instagram.com/webgampang.id" target="_blank" rel="noopener">Instagram @webgampang.id</a>
+      <a href="../">Beranda WebGampang</a>
+    </div>
+    <p>WebGampang. Undangan digital dan kartu ucapan, sekali bayar, aktif selamanya.</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll('.rv');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (e) { e.classList.add('on'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
+</body>
+</html>
