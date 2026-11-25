@@ -272,6 +272,43 @@
       }
       .demo-link:hover, .demo-link:focus-visible { text-decoration: underline; }
 
+      /* ---------- Undangan & Kartu (desain v2) ---------- */
+      .invite-wrap {
+        margin: 44px 0 8px;
+        padding: 36px 20px 30px;
+        border-radius: 24px;
+        background: linear-gradient(165deg, #fdf6ec 0%, #fdeef1 52%, #f1f0fd 100%);
+        border: 1px solid rgba(190, 150, 120, 0.25);
+      }
+      @media (min-width: 860px) { .invite-wrap { padding: 44px 40px 38px; } }
+      .invite-deco { display: flex; justify-content: center; gap: 10px; margin-bottom: 14px; }
+      .invite-deco svg { width: 16px; height: 16px; }
+      .invite-deco .h1 { color: #8e2f45; }
+      .invite-deco .h2 { color: #d95f3c; }
+      .invite-deco .h3 { color: #6f7f5f; }
+      .invite-head { margin-top: 0; text-align: center; }
+      .invite-sub { text-align: center; max-width: 620px; margin-left: auto; margin-right: auto; }
+      .invite-cards { margin-top: 28px; }
+      .invite-card { border-top: 4px solid var(--accent); }
+      .invite-nikah { --accent: #6f7f5f; --accent-soft: #eef2e8; }
+      .invite-webinar { --accent: #5b5bd6; --accent-soft: #ececff; }
+      .invite-teman { --accent: #d95f3c; --accent-soft: #fdeee9; }
+      .invite-pacar { --accent: #8e2f45; --accent-soft: #f9e8ec; }
+      .invite-icon {
+        display: flex; align-items: center; justify-content: center;
+        width: 52px; height: 52px; margin: 2px 0 14px;
+        border-radius: 50%;
+        background: var(--accent-soft); color: var(--accent);
+      }
+      .invite-icon svg { width: 26px; height: 26px; }
+      .invite-card .price { color: var(--accent); }
+      .invite-card .features svg { color: var(--accent); }
+      .invite-card .tagline {
+        font-family: Georgia, 'Times New Roman', serif;
+        font-style: italic; font-size: 1rem; line-height: 1.65;
+      }
+      .invite-card .demo-link { color: var(--accent); }
+
       /* ---------- Contoh website ---------- */
       .demo-cta {
         margin-top: 26px;
@@ -724,10 +761,13 @@
       </div>
 
       <!-- Undangan Digital dan Kartu Ucapan -->
-      <h2 class="sec plist-head" id="undangan">Undangan Digital dan Kartu Ucapan</h2>
-      <p class="sec-sub">Bukan cuma website. Untuk hari-hari yang tidak boleh lewat begitu saja, kami buatkan undangan dan kartu yang dibuka dari HP, lengkap dengan musik latar. Sekali bayar, aktif selamanya, tanpa biaya perpanjangan.</p>
-      <div class="packages two">
-        <article class="card reveal">
+      <div class="invite-wrap reveal">
+        <div class="invite-deco" aria-hidden="true"><span class="h1"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span><span class="h2"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span><span class="h3"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span></div>
+      <h2 class="sec plist-head invite-head" id="undangan">Undangan Digital dan Kartu Ucapan</h2>
+      <p class="sec-sub invite-sub">Bukan cuma website. Untuk hari-hari yang tidak boleh lewat begitu saja, kami buatkan undangan dan kartu yang dibuka dari HP, lengkap dengan musik latar. Sekali bayar, aktif selamanya, tanpa biaya perpanjangan.</p>
+      <div class="packages two invite-cards">
+        <article class="card invite-card invite-nikah reveal">
+          <div class="invite-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="14" r="5.5"/><circle cx="15" cy="14" r="5.5"/></svg></div>
           <h2>Undangan Pernikahan</h2>
           <p class="price">Rp 149.000<small>sekali bayar</small></p>
           <p class="tagline">Hari yang ditunggu seumur hidup, pantas dibuka dengan cara yang sama istimewanya. Tamu membuka undangan, namanya sudah tertulis di sampul, musik mengalun, dan mereka tahu hari ini sungguh-sungguh disiapkan.</p>
@@ -747,7 +787,8 @@
           <a class="demo-link" href="https://erzarafy.github.io/web-demo-umkm/undangan-nikah/" target="_blank" rel="noopener">Lihat contoh undangan &rarr;</a>
         </article>
 
-        <article class="card reveal">
+        <article class="card invite-card invite-webinar reveal">
+          <div class="invite-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="14" height="12" rx="2"/><path d="m16 10 6-3v10l-6-3"/></svg></div>
           <h2>Undangan Webinar &amp; Event</h2>
           <p class="price">Rp 99.000<small>sekali bayar</small></p>
           <p class="tagline">Acara yang bagus pantas diundang dengan cara yang bagus. Sejak undangannya dibuka, tamu sudah merasa acaranya disiapkan sungguh-sungguh, bukan sekadar pesan berantai.</p>
@@ -765,7 +806,8 @@
           <a class="demo-link" href="https://erzarafy.github.io/web-demo-umkm/undangan-webinar/" target="_blank" rel="noopener">Lihat contoh undangan &rarr;</a>
         </article>
 
-        <article class="card reveal">
+        <article class="card invite-card invite-teman reveal">
+          <div class="invite-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3"/><path d="M5 21h14"/><path d="M6 21v-6.5A6 6 0 0 1 18 14.5V21"/><path d="M6 15h12"/></svg></div>
           <h2>Kartu Ulang Tahun untuk Teman</h2>
           <p class="price">Rp 49.000<small>sekali bayar</small></p>
           <p class="tagline">Teman yang selalu ada di hari-hari biasa, pantas dapat kejutan di hari istimewanya. Kartu kecil ini cara sederhana bilang: aku ingat, dan aku peduli.</p>
@@ -782,7 +824,8 @@
           <a class="demo-link" href="https://erzarafy.github.io/web-demo-umkm/kartu-ultah-teman/" target="_blank" rel="noopener">Lihat contoh kartu &rarr;</a>
         </article>
 
-        <article class="card reveal">
+        <article class="card invite-card invite-pacar reveal">
+          <div class="invite-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
           <h2>Kartu Ulang Tahun untuk Pacar</h2>
           <p class="price">Rp 49.000<small>sekali bayar</small></p>
           <p class="tagline">Ada kata-kata yang susah diucapkan langsung, tapi terlalu penting untuk tidak disampaikan. Surat ini menyampaikannya dengan cara yang akan dia baca berulang-ulang.</p>
@@ -799,6 +842,7 @@
           </a>
           <a class="demo-link" href="https://erzarafy.github.io/web-demo-umkm/kartu-ultah-pacar/" target="_blank" rel="noopener">Lihat contoh kartu &rarr;</a>
         </article>
+      </div>
       </div>
 
       <!-- Perpanjangan -->
